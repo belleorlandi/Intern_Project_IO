@@ -1,0 +1,33 @@
+[Files]
+Names=Requirements,LabVIEW
+RepositoryTool=Boost
+
+[Requirements]
+Cover1=LabVIEW
+Cover1Position=930@1155
+GraphicPosition=930@590
+Type=Word
+Path=Gerador de Sinais - Requirements.docx
+AbsolutePath=C:\Users\iorlandi\Documents\Intern_Project_IO\Requirements\Gerador de Sinais - Requirements.docx
+GVPosition=24540,480,27500,9620
+SortAttributeName=Priority
+
+[LabVIEW]
+GraphicPosition=920@1720
+Variable1Name=outputDir
+Variable1Value=C:\\Users\\iorlandi\\AppData\\Local\\Temp\\nirg66
+Variable2Name=recurseViValues
+Variable2Value=0
+Variable3Name=absoluteFiles
+Variable3Value=C:\\Users\\iorlandi\\Documents\\Intern_Project_IO
+Variable4Name=recurseDirValues
+Variable4Value=0
+Variable5Name=files
+Variable5Value=..\\..\\Intern_Project_IO
+Variable6Name=defaultDirectory
+Variable6Value=..\\..\\Intern_Project_IO
+Variable7Name=analyzeDiagrams
+Variable7Value=true
+Type=LabVIEW
+Path=..\..\Intern_Project_IO
+
