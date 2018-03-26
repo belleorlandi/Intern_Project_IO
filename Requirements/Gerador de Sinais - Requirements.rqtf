@@ -7,15 +7,15 @@ Cover1=LabVIEW
 Cover1Position=930@1155
 GraphicPosition=930@590
 Type=Word
-Path=Gerador de Sinais - Requirements.docx
-AbsolutePath=C:\Users\iorlandi\Documents\Intern_Project_IO\Requirements\Gerador de Sinais - Requirements.docx
+Path=GeradorDeSinais_Requirements.docx
+AbsolutePath=C:\Users\iorlandi\Documents\Intern_Project_IO\Requirements\GeradorDeSinais_Requirements.docx
 GVPosition=24540,480,27500,9620
 SortAttributeName=Priority
 
 [LabVIEW]
 GraphicPosition=920@1720
 Variable1Name=outputDir
-Variable1Value=C:\\Users\\iorlandi\\AppData\\Local\\Temp\\nirg66
+Variable1Value=C:\\Users\\iorlandi\\AppData\\Local\\Temp\\nirg5
 Variable2Name=recurseViValues
 Variable2Value=0
 Variable3Name=absoluteFiles
