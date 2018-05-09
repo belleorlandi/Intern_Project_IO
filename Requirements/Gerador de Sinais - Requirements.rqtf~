@@ -9,13 +9,13 @@ GraphicPosition=930@590
 Type=Word
 Path=GeradorDeSinais_Requirements.docx
 AbsolutePath=C:\Users\iorlandi\Documents\Intern_Project_IO\Requirements\GeradorDeSinais_Requirements.docx
-GVPosition=1780,660,4740,10140
+GVPosition=24540,480,27500,9620
 SortAttributeName=Priority
 
 [LabVIEW]
 GraphicPosition=920@1720
 Variable1Name=outputDir
-Variable1Value=C:\\Users\\iorlandi\\AppData\\Local\\Temp\\nirg41
+Variable1Value=C:\\Users\\iorlandi\\AppData\\Local\\Temp\\nirg5
 Variable2Name=recurseViValues
 Variable2Value=0
 Variable3Name=absoluteFiles
@@ -30,6 +30,4 @@ Variable7Name=analyzeDiagrams
 Variable7Value=true
 Type=LabVIEW
 Path=..\..\Intern_Project_IO
-GVPosition=14580,4100,17540,7800
-SortAttributeName=Version
 
