@@ -4,7 +4,7 @@ RepositoryTool=Boost
 
 [Requirements]
 Cover1=LabVIEW
-Cover1Position=930@1155
+Cover1Position=925@1155
 GraphicPosition=930@590
 Type=Word
 Path=GeradorDeSinais_Requirements.docx
@@ -15,7 +15,7 @@ SortAttributeName=Priority
 [LabVIEW]
 GraphicPosition=920@1720
 Variable1Name=outputDir
-Variable1Value=C:\\Users\\iorlandi\\AppData\\Local\\Temp\\nirg41
+Variable1Value=C:\\Users\\iorlandi\\AppData\\Local\\Temp\\nirg82
 Variable2Name=recurseViValues
 Variable2Value=0
 Variable3Name=absoluteFiles
