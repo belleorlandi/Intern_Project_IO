@@ -1,0 +1,461 @@
+<HTML>
+<HEAD>
+<style>
+body {
+        color: white;
+}
+h1 {
+        color: #00FF00;
+}
+h3 {
+		color: #12d7ff;
+}
+p {
+        color: #ffffff
+}
+a {
+        color: #fffd65
+}
+</style>
+<TITLE>SM-SG Main.vi</TITLE>
+<META NAME="Author" CONTENT="Isabelle Orlandi">
+<META NAME="Gerador de Sinais" CONTENT="G Development Environment">
+</HEAD>
+	<HR>
+	<HR>
+		<p style="text-align:center;"><img src="logo_ni.png" alt="Logo"></p>
+		<BODY BGCOLOR="#292929">
+<H3 style="text-align:center;"> GERADOR DE SINAIS</H3>
+<P>Projeto de um Gerador de Sinal programado em LabVIEW 2018 e estruturado em formato de máquina de estados finitos. Permite a geração e validação do sinal configurado pelos controles do programa. Possui a opção de 'salvar' e 'carregar' formas de onda em formato TDMS. Software desenvolvido de forma escalável, permitindo que novas funcionalidades ou canais sejam adicionados ou alterados. </P>
+<HR>
+<HR>
+<!---------------------------------------------------------->
+<H3 style="text-align:center;">-- Interface de Usuário --</H3>
+<!---------------------------------------------------------->
+<P style="text-align:center;"><IMG SRC="SM-SG_Mainp.png" ALT="SM-SG Main.vi"></P>
+<HR>
+<HR>
+<!---------------------------------------------------------->
+<H3 style="text-align:center;">-- Controles e Indicadores --</H3>
+<!---------------------------------------------------------->
+<HR>
+<HR>
+<H3 style="text-align:center"> - Gráficos - </H3>	
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="graf_sinal.png" ALT="imsdt"></P>
+		</TD>
+		<TD>
+			<B>Onda Configurada</B> 
+			<P>Gráfico que apresenta a forma de onda equivalente aos parâmetros configurados pelo usuário. A alteração de algum parâmetro de onda resulta em alteração dinâmica dessa onda. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="graf_ondaConst.png" ALT="imsdt"></P>
+		</TD>
+		<TD>
+			<B>Sinal Construído</B> 
+			<P>Gráfico que apresenta o sinal construído pelo usuário a partir das formas de onda configuradas inicalmente no gráfico &quot;Onda Configurada&quot;, que podem ser adicionadas, removidas ou concatenadas. Este sinal é referência para a geração do sinal analógico no canal de saída. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<H3 style="text-align:center;">- Configurações da Onda -</H3>	
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_formaDeOnda.png" ALT="ccclst"></P>
+		</TD>
+		<TD>
+			<B>Tipo de forma de onda</B> 
+			<P>Estão disponíveis 5 padrões de forma de onda: Senoidal, Triangular, Quadrada, Serrilhada e Trapezoidal. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<UL>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="sin.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Onda Senoidal</B> 
+			<p> Saiba mais sobre <a href="https://pt.wikipedia.org/wiki/Senoide">Onda senoidal.</a></p>
+		</TD>
+	</TR>
+</Table>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="triangular.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Onda Triangular</B> 
+			<p>Saiba mais sobre <a href="https://pt.wikipedia.org/wiki/Onda_triangular">Onda triangular.</a></p> 
+		</TD>
+	</TR>
+</Table>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="quadrada.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Onda Quadrada</B> 
+			<p>Saiba mais sobre <a href="https://pt.wikipedia.org/wiki/Onda_quadrada">Onda quadrada.</a> </p>
+		</TD>
+	</TR>
+</Table>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="serrilhada.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Onda Serrilhada</B> 
+			<p>Saiba mais sobre <a href="https://pt.wikipedia.org/wiki/Onda_dente_de_serra">Onda serrihada.</a> </p>
+		</TD>
+	</TR>
+</Table>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="trap.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Onda Trapezoidal</B> </TD>
+	</TR>
+</Table>
+</UL>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_freq.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>Frequência </B> 
+			<P>Medida do número de ocorrências de um evento repetitivo por uma unidade de tempo. É equivalente ao inverso do período de uma onda. </P>
+			Saiba mais sobre <a href="https://en.wikipedia.org/wiki/Frequency">Frequência.</a> 
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_amplitude.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>Amplitude [Amplitude [Vp] ]</B> 
+			<P>Medida da magnitude de oscilação de uma onda. O controle ajusta a amplitude de pico da forma de onda. </P>
+			Saiba mais sobre <a href="https://en.wikipedia.org/wiki/Amplitude">Amplitude.</a> 
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_ciclos.png" ALT="ci64"></P>
+		</TD>
+		<TD>
+			<B>Ciclos </B> 
+			<P>Quantidade de períodos da onda a serem exibidos. Um período completo de uma onda equivale a um ciclo da mesma.</P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_fase.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>Fase </B> 
+			<P>Indica a diferença em ângulos da posição inicial de uma onda com relação a um referêncial. </P>
+			Saiba mais sobre <a href="https://en.wikipedia.org/wiki/Phase_(waves)">Fases.</a> 
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_offset.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>Offset</B> 
+			<P>Influência do componente DC em uma onda periódica. O controle de offset é dinamicamente compensado pelo valor de Amplitude ajustado, para que que a tensão de entrada da onda não ultrapasse 20 Vpp.</P>
+			Saiba mais sobre <a href="https://en.wikipedia.org/wiki/DC_bias">Offset.</a> 
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="duty.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>Razão Cíclica</B> 
+			<P>Fração do tempo de um sinal de forma de onda quadrada em que ele permanece em estado alto. Definido como um porcentagem do período da onda completa.</P>
+			Saiba mais sobre <a href="https://en.wikipedia.org/wiki/Duty_cycle">Offset.</a> 
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_conf_trap.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>% Subida </B> 
+			<P>Porcentagem do período de uma forma de onda trapezoidal correspondente ao tempo de subida da onda. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_conf_trap.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>% Alto </B> 
+			<P>Porcentagem do período de uma forma de onda trapezoidal correspondente ao tempo de máximo da onda. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_conf_trap.png" ALT="cdbl"></P>
+		</TD>
+		<TD>
+			<B>% Descida </B> 
+			<P>Porcentagem do período de uma forma de onda trapezoidal correspondente ao tempo de descida da onda. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<H3 style="text-align:center">- Edição do Sinal Construído -</H3>	
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="cursores.png" ALT="idbl"></P>
+		</TD>
+		<TD>
+			<B>Cursores</B> 
+			<P>Utilize os cursores para visualizar informações sobre o eixo de tempo da onda. Os cursores indicam também qual intervalo de onda será retirado pelo botão 'Remover'.</P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_add.png" ALT="Adicionar"></P>
+		</TD>
+		<TD>
+			<B>Adicionar</B> 
+			<P>Adiciona a onda configurada ao final do sinal construído.</P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_retirar.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Remove</B> 
+			<P>Retira do gráfico construído o intervalo de onda entre os dois cursores. </P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_limpar.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Limpa</B> 
+			<P>Apaga a onda exibida no gráfico de sinal construído.</P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<H3 style="text-align:center">- Geração do Sinal -</H3>	
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="canal_saida.png" ALT="cdaqmxphyschan"></P>
+		</TD>
+		<TD>
+			<B>Canal de Saída</B> 
+			<P>Selecione o canal físico de saída do sinal analógico. </P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_gerar.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Gerar</B> 
+			<P>Inicia a geração do sinal analógico correspondente à forma de onda do gráfico construído em um equipamento DAQ.</P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_pararGer.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Parar</B> 
+			<P>Interrompe a geração do sinal analógico que estiver sendo gerado pelo equipamento DAQ.</P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_validar.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Validar</B> 
+			<P>Lança uma janela de validação do sinal através da aquisição e exibição do sinal gerado. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<H3 style="text-align:center">- Log de Arquivos -</H3>	
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_save.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Salvar</B> 
+			<P>Salva em um arquivo TDMS as componentes do sinal construído.</P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_load.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Abrir[Abrir]</B> 
+			<P>Carrega um arquivo TDMS ao gráfico do sinal construído. </P>
+		</TD>
+	</TR>
+</Table>
+<!---------------------------------------------------------->
+<HR>
+<H3 style="text-align:center">- Janela do Programa -</H3>	
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="led.png" ALT="Adicionar"></P>
+		</TD>
+		<TD>
+			<B>LED indicador de Geração de Onda</B> 
+			<P>LED piscando em vermelho indica que há sinal sendo gerado e disponibilizado no canal de saída.</P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_info.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Informações</B> 
+			<P>Exibe uma caixa de dialogo que contém especificações simplificadas e detalhes do software.</P>
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_help.png" ALT="cbool"></P>
+		</TD>
+		<TD>
+			<B>Ajuda</B> 
+			<P>Abre uma página em seu navegador padrão correspondente à documentação e tutorial de utilização do Gerador de Sinais. 
+		</TD>
+	</TR>
+</Table>
+<HR> 
+<!---------------------------------------------------------->
+<Table>
+	<TR valign=TOP>
+		<TD>
+			<P><IMG SRC="bot_stop.png" ALT="stop"></P>
+		</TD>
+		<TD>
+			<B>Fechar</B> 
+			<P> Interrompe os processos existentes e fecha o software. 
+		</TD>
+	</TR>
+</Table>
+<HR>
+<!---------------------------------------------------------->
+
