@@ -329,7 +329,7 @@
 				<Property Name="Destination[2].path" Type="Path">../builds/NI_AB_PROJECTNAME/versao1.0/SubVIs</Property>
 				<Property Name="DestinationCount" Type="Int">3</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/FG.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{C3692F0F-AE01-4038-AA67-4F7A52F17676}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{9EA02416-9383-4D71-B7F4-BD6BBA5DE711}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/SM-SG Main.vi</Property>
@@ -343,7 +343,21 @@
 				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SubVIs/Launch VI.vi</Property>
 				<Property Name="Source[3].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[3].type" Type="Str">VI</Property>
-				<Property Name="SourceCount" Type="Int">4</Property>
+				<Property Name="Source[4].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[4].Container.depDestIndex" Type="Int">0</Property>
+				<Property Name="Source[4].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/My Computer/documentation</Property>
+				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[4].type" Type="Str">Container</Property>
+				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SubVIs/ajuda.vi</Property>
+				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[5].type" Type="Str">VI</Property>
+				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[6].itemID" Type="Ref">/My Computer/SubVIs/sobre.vi</Property>
+				<Property Name="Source[6].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[6].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">7</Property>
 				<Property Name="TgtF_companyName" Type="Str">National Instruments</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">versao1.0</Property>
 				<Property Name="TgtF_internalName" Type="Str">versao1.0</Property>
@@ -413,7 +427,7 @@
 				<Property Name="INST_buildSpecName" Type="Str">GeradorDeSinais</Property>
 				<Property Name="INST_defaultDir" Type="Str">{8ABA2B61-0CF8-426A-B727-82FEB7560001}</Property>
 				<Property Name="INST_productName" Type="Str">Gerador de Sinais</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.2</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.5</Property>
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">18008007</Property>
 				<Property Name="MSI_autoselectDrivers" Type="Bool">true</Property>
